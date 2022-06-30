@@ -3,7 +3,6 @@ export const meta = () => ({
 });
 
 export default function Index() {
-
   return (
     <div>
       <h1>rere</h1>
