@@ -1,0 +1,4 @@
+{
+  "extends": ["@remix-run/eslint-config", "@remix-run/eslint-config/node"],
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
