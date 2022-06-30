@@ -1,4 +1,12 @@
-# Welcome to Remix!
+# Landing Page with Remix 
+
+A mid-level project where users can add and edit products, track orders and edit pages. The aim is to learn Remix in more detail, it will not be used for commercial purposes.
+
+Payment Methods
+
+- PayPal Integration
+- Stripe Payment System
+- Payment by Bank Transfer
 
 - [Remix Docs](https://remix.run/docs)
 
