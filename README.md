@@ -4,10 +4,11 @@ A mid-level project where users can add and edit products, track orders and edit
 
 Payment Methods
 
-- PayPal Integration
-- Stripe Payment System
-- Payment by Bank Transfer
+* PayPal Integration
+* Stripe Payment System
+* Payment by Bank Transfer
 
+For detailed information about Remix.
 - [Remix Docs](https://remix.run/docs)
 
 ## Development
