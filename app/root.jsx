@@ -6,7 +6,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-/* import baseStyle from '~/styles/base.css'; */
 import baseStyle from './styles/base.css';
 
 export const links = () => {

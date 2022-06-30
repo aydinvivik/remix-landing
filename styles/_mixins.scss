@@ -1,0 +1,46 @@
+@use "sass:math";
+
+// Breakpoint Sizes
+$breakpoints: (
+	320: 20rem, // breakpoint 320px
+  420: 26.25rem, // breakpoint 420px
+  576: 36rem, // breakpoint 576px
+  768: 48rem, // breakpoint 768px
+  992: 62rem, // breakpoint 992px
+	1024: 64.0625rem, // breakpoint 1024px
+  1200: 75rem, // breakpoint 1200px
+	1280: 80rem, // breakpoint 1280px
+	1360: 85rem, // breakpoint 1360px
+  1400: 87.5rem, // breakpoint 1400px
+  1600: 100rem // breakpoint 1600px
+);
+
+// Min Breakpoint
+@mixin min-break($breakpoint) {
+	@if map-has-key($breakpoints , $breakpoint) {
+		$breakpoint-value: map-get(
+			$breakpoints,
+			$breakpoint
+		);
+		@media screen and (min-width: $breakpoint-value) {
+			@content;
+		}
+	} @else {
+		@warn "Invalid breakpoint: #{$breakpoint}.";
+	}
+}
+
+// Max Breakpoint
+@mixin max-break($breakpoint) {
+	@if map-has-key($breakpoints , $breakpoint) {
+		$breakpoint-value: map-get(
+			$breakpoints,
+			$breakpoint
+		);
+		@media screen and (max-width: $breakpoint-value) {
+			@content;
+		}
+	} @else {
+		@warn "Invalid breakpoint: #{$breakpoint}.";
+	}
+}
