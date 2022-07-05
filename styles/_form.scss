@@ -1,0 +1,328 @@
+// Default forms
+.site-form {
+  position: relative;
+  .form-title-wrapper {
+    margin-bottom: .9375rem;
+    @include min-break(1024) {
+      margin-bottom: 2.25rem;
+    }
+    .mantine-Button-root {
+      height: 2.75rem;
+      @include min-break(1024) {
+        height: 2.875rem;
+        padding-left: 1.625rem;
+        padding-right: 1.625rem;
+      }
+    }
+    .mantine-TextInput-root {
+      input {
+        font-size: .9375rem;
+        font-weight: 500;
+        height: 2.75rem;
+        &::placeholder {
+          font-size: .9375rem;
+          letter-spacing: -0.02em;
+        }
+        @include min-break(1024) {
+          font-size: 1.125rem;
+          height: 2.875rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+    }
+    .entry-slug {
+      font-size: .75rem;
+      margin-top: .3125rem;
+      color: $--color-gray-6;
+      p {
+        margin-bottom: 0;
+        strong {
+          font-weight: 600;
+          margin-right: .25rem;
+          color: $--color-gray-4;
+        }
+      }
+    }
+  }
+  .form-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    &.bordered {
+      padding-top: .9375rem;
+      border-top: 1px solid $--color-gray-2;
+      @include min-break(1024) {
+        padding-top: 1.875rem;
+      }
+    }
+    .column {
+      &.primary {
+        @include min-break(992) {
+          flex: 1;
+          max-width: none;
+        }
+      }
+      &.sidebar {
+        margin-top: .625rem;
+        @include min-break(992) {
+          flex: 0 0 20rem;
+          max-width: none;
+          padding-left: 1.875rem;
+          padding-top: .25rem;
+          margin-top: 0;
+          .form-item {
+            margin-bottom: 2rem;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        @include min-break(1200) {
+          flex: 0 0 20.625rem;
+          max-width: none;
+        }
+      }
+    }
+  }
+}
+
+// Form item
+.form-item {
+  position: relative;
+  &:not(.no-margin) {
+    margin-bottom: 1.25rem;
+  }
+  &.margin-large {
+    @include min-break(1024) {
+      margin-bottom: 1.875rem;
+    }
+  }
+  &.callout {
+    background-color: $--color-gray-0;
+    border-radius: $form-border-radius;
+    padding: 1.25rem;
+    @include min-break(1024) {
+      border-radius: $border-radius-large;
+      padding: 2.5rem;
+    }
+    .mantine-TextInput-input {
+      &.mantine-TextInput-defaultVariant {
+        box-shadow: $--shadow-style-2;
+      }
+    }
+  }
+  &--body {
+    & > * {
+      & + * {
+        margin-top: .625rem;
+      }
+    }
+  }
+  &--label {
+    font-size: .9375rem;
+    font-weight: 500;
+    margin-bottom: .625rem;
+    &.bordered {
+      border-bottom: 1px solid $--color-gray-2;
+      padding-bottom: .625rem;
+      margin-bottom: .9375rem;
+    }
+  }
+  .form-description {
+    margin-top: .625rem;
+    & + .form-item--body {
+      margin-top: .9375rem;
+    }
+  }
+}
+
+// Form description
+.form-description {
+  font-size: .8125rem;
+  line-height: 1.6;
+  color: $--color-gray-5;
+  margin-bottom: .75rem;
+  @include min-break(1024) {
+    line-height: 1.4;
+  }
+  p {
+    line-height: inherit;
+    margin-bottom: 0;
+    strong {
+      font-weight: 600;
+      &.color-orange {
+        color: $--color-orange-4;
+      }
+    }
+    span {
+      display: inline-flex;
+      align-items: center;
+      color: $--color-gray-6;
+      background-color: $--color-gray-0;
+      border: 1px solid $--color-gray-2;
+      padding: .125rem .375rem;
+      border-radius: 1.25rem;
+      vertical-align: middle;
+      &[aria-hidden] {
+        cursor: pointer;
+      }
+      svg {
+        width: .875rem;
+        height: .875rem;
+        margin-right: .1875rem;
+      }
+      &.color-orange {
+        color: $--color-orange-5;
+        background-color: $--color-orange-0;
+        border: 1px solid $--color-orange-1;
+      }
+    }
+  }
+}
+
+// Button settings
+.mantine-Button-root {
+  font-size: .875rem;
+  border-radius: $form-border-radius;
+  .mantine-Button-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    svg {
+      width: 100%;
+      height: 100%;
+      &.feather-plus {
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+    }
+    &.mantine-Button-leftIcon {
+      margin-left: -.25rem;
+      margin-right: .4375rem;
+    }
+    &.mantine-Button-righttIcon {
+      margin-right: -.25rem;
+      margin-left: .4375rem;
+    }
+  }
+  &.mantine-Button-default {
+    box-shadow: $--shadow-style-1;
+  }
+}
+
+// Form text input
+.mantine-TextInput-root {
+  .mantine-TextInput-label {
+    font-size: .8125rem;
+    font-weight: 400;
+    margin-bottom: .25rem;
+  }
+  .mantine-TextInput-input {
+    font-size: .875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    border-radius: $form-border-radius;
+    &::placeholder {
+      font-weight: 400;
+    }
+    &.mantine-TextInput-defaultVariant {
+      box-shadow: $--shadow-style-1;
+    }
+  }
+  &.vertical-input {
+    @include min-break(1024) {
+      display: flex;
+      align-items: center;
+      .mantine-TextInput-label {
+        flex: 0 0 25%;
+        max-width: 18.75rem;
+        min-width: 10rem;
+        padding-right: 1.25rem;
+        margin-bottom: 0;
+      }
+      .mantine-TextInput-wrapper {
+        flex: 1;
+      }
+    }
+  }
+}
+
+// Textarea
+.mantine-Textarea-root {
+  .mantine-Textarea-input {
+    font-size: .875rem;
+    letter-spacing: -0.01em;
+    border-radius: $form-border-radius;
+    &.mantine-Textarea-defaultVariant {
+      box-shadow: $--shadow-style-1;
+    }
+  }
+}
+
+// Rich editor
+.mantine-RichTextEditor-root {
+  border-radius: $form-border-radius;
+  box-shadow: $--shadow-style-1;
+  .ql-toolbar {
+    border-top-left-radius: $form-border-radius;
+    border-top-right-radius: $form-border-radius;
+  }
+  .ql-editor {
+    min-height: 15.625rem;
+  }
+}
+
+// Switch
+.mantine-Switch-root {
+  .mantine-Switch-label {
+    font-size: .9375rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+// Checkbox
+.mantine-Checkbox-root {
+  .mantine-Checkbox-label {
+    font-size: .9375rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .mantine-Checkbox-inner {
+    .mantine-Checkbox-input {
+      box-shadow: $--shadow-style-3;
+      border-radius: $border-radius-small;
+    }
+  }
+  & + .form-description {
+    margin-top: .375rem;
+  }
+}
+
+// Form dropzone
+.mantine-Dropzone-root {
+  border-radius: $form-border-radius;
+  @include min-break(1024) {
+    border-radius: $border-radius-large;
+  }
+  .form-dropzone {
+    svg {
+      width: 2.875rem;
+      height: 2.875rem;
+      opacity: .5;
+    }
+    &--detail {
+      .entry-title {
+        font-size: 1rem;
+      }
+      p {
+        font-size: .8125rem;
+        line-height: 1.4;
+        color: $--color-gray-6;
+        margin-bottom: 0;
+        strong {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

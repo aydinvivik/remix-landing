@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$font-ltr: 'Inter', sans-serif;
+
+// Default Font Settings
+body,
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: $font-ltr;
+  letter-spacing: $letter-spacing;
+  color: $--color-black;
+}
+
+// Responsive Settings
+.hide-desktop {
+  @include min-break(1024) {
+    display: none!important;
+  }
+}
+.hide-mobile {
+  @include max-break(1024) {
+    display: none!important;
+  }
+}
+
+// Flex settings
+.dflex {display: flex;}
+.dinline-flex {display: inline-flex;}
+.justify-start {justify-content: flex-start;}
+.justify-end {justify-content: flex-end;}
+.justify-center {justify-content: center;}
+.justify-between {justify-content: space-between;}
+.justify-around {justify-content: space-around;}
+.align-start {align-items: flex-start;}
+.align-end {align-items: flex-end;}
+.align-center {align-items: center;}
+.align-strech {align-items: stretch;}
+.ml-auto {margin-left: auto;}
+.mr-auto {margin-right: auto;}
+@include max-break(1024) {
+  .mobile-justify-start {justify-content: flex-start;}
+  .mobile-justify-end {justify-content: flex-end;}
+  .mobile-justify-center {justify-content: center;}
+  .mobile-justify-between {justify-content: space-between;}
+  .mobile-justify-around {justify-content: space-around;}
+  .mobile-align-start {align-items: flex-start;}
+  .mobile-align-end {align-items: flex-end;}
+  .mobile-align-center {align-items: center;}
+  .mobile-align-strech {align-items: stretch;}
+  .mobile-ml-auto {margin-left: auto;}
+  .mobile-mr-auto {margin-right: auto;}
+}
+
+// User settings
+.site-user {
+  display: none;
+  align-items: center;
+  @include min-break(1024) {
+    display: inline-flex;
+  }
+  &--avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+    user-select: none;
+    @include min-break(1024) {
+      margin-right: .9375rem;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8375rem;
+      font-weight: 700;
+      width: 100%;
+      height: 100%;
+      color: $--color-black;
+      background-color: #fff;
+      @include min-break(1024) {
+        font-size: .875rem;
+        font-weight: 600;
+      }
+    }
+  }
+  &--detail {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    & > span {
+      font-size: .6875rem;
+      font-weight: 500;
+      opacity: .5;
+    }
+    p {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: -0.07px;
+      line-height: inherit;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Brand
+.site-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  a {
+    display: flex;
+    align-items: center;
+    color: currentColor;
+    &:hover, &:active, &:focus {
+      color: currentColor;
+    }
+  }
+  i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: $--color-black;
+    width: 2rem;
+    height: 2rem;
+    border-radius: .375rem;
+    margin-right: .625rem;
+  }
+  span {
+    position: relative;
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.8px;
+    top: -1px;
+  }
+}
+
+// Menu settings
+.site-menu {
+  display: flex;
+  .menu {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      display: inline-flex;
+      align-items: center;
+    }
+    .menu-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: .5rem;
+    }
+  }
+}
+
+// Text content description
+.entry-description {
+  font-size: .8125rem;
+  line-height: 1.4;
+  color: $--color-gray-5;
+  @include min-break(1024) {
+    font-size: .9375rem;
+  }
+  p {
+    line-height: inherit;
+    letter-spacing: -0.03em;
+  }
+}
+
+// Empty content
+.empty-content {
+  position: relative;
+  text-align: center;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+  @include min-break(1024) {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+  .entry-title {
+    font-size: 1.375rem;
+    @include min-break(1024) {
+      font-size: 1.5rem;
+    }
+  }
+  .entry-description {
+    & + .mantine-Button-root {
+      margin-top: .625rem;
+      @include min-break(1024) {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+}
+
+// Copyright
+.site-copyright {
+  font-size: .8125rem;
+  color: $--color-gray-5;
+}

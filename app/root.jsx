@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { MantineProvider } from "@mantine/core";
 import baseStyle from './styles/base.css';
 
 export const links = () => {
@@ -26,11 +27,35 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <MantineTheme>
+          <Outlet />
+        </MantineTheme>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
   );
+}
+
+function MantineTheme({ children }) {
+  const useTheme = {
+    fontFamily: 'Inter, sans-serif',
+    // White and black colors, defaults to '#fff' and '#000'
+    black: '#060a23',
+    // Should be key of theme.colors, cannot be actual color value
+    primaryColor: 'violet',
+    // Left to right or right to left direction, see RTL Support guide to learn more
+    dir: 'ltr'
+  };
+
+  return (
+    <MantineProvider
+        theme={useTheme}
+        withNormalizeCSS
+        withGlobalStyles
+      >
+        {children}
+    </MantineProvider>
+  )
 }

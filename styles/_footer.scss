@@ -1,0 +1,9 @@
+.site-footer {
+  &.dashboard-footer {
+    margin-top: 1.25rem;
+    margin-bottom: .9375rem;
+    @include min-break(1024) {
+      margin-top: 1.875rem;
+    }
+  }
+}

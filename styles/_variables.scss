@@ -1,7 +1,50 @@
 @use "sass:math";
+
+// Transition Effect
+$bezier: cubic-bezier(.28,.12,.22,1);
+$bezier-second: cubic-bezier(.17,.62,.44,.99);
+
+// Gutter
+$gutter-xs: .3125rem; //5px
+$gutter-sm: .625rem; // 10px
+$gutter-m: .9375rem; // 15px
+$gutter-l: 1.25rem; // 20px
+$gutter-xl: 1.5625rem; // 25px
+
 // Container settings
-$gutter: .9375rem;
-$container: 1200px;
+$container-sm: 960px;
+$container-m: 1200px;
+$container-l: 1280px;
+$container-xl: 1360px;
+$container-xxl: 1440px;
+$container-fluid: 100%;
 
 // Letter spacing
 $letter-spacing: -0.02em;
+
+// Border Radius
+$border-radius-small: 6px;
+$border-radius-medium: 8px;
+$border-radius-large: 12px;
+$border-radius-xlarge: 14px;
+$border-radius-xxlarge: 18px;
+
+// Form sizes
+$form-height: 40px;
+$form-border-radius: 8px;
+
+// Flex Grid Settings
+$column-2: math.div(100%, 6);
+$column-3: math.div(100%, 4);
+$column-4: math.div(100%, 3);
+$column-5: 41.66667%;
+$column-6: math.div(100%, 2);
+$column-7: 58.33333%;
+$column-8: 66.66667%;
+$column-9: 75%;
+$column-10: 83.33333%;
+$column-11: 91.66667%;
+$column-12: 100%;
+
+// Header
+$dashboard-header-height: 80px;

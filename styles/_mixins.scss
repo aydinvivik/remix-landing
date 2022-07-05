@@ -2,17 +2,17 @@
 
 // Breakpoint Sizes
 $breakpoints: (
-	320: 20rem, // breakpoint 320px
-  420: 26.25rem, // breakpoint 420px
-  576: 36rem, // breakpoint 576px
-  768: 48rem, // breakpoint 768px
-  992: 62rem, // breakpoint 992px
-	1024: 64.0625rem, // breakpoint 1024px
-  1200: 75rem, // breakpoint 1200px
-	1280: 80rem, // breakpoint 1280px
-	1360: 85rem, // breakpoint 1360px
-  1400: 87.5rem, // breakpoint 1400px
-  1600: 100rem // breakpoint 1600px
+	320: 20.03125rem, // breakpoint 320px
+  420: 26.28125rem, // breakpoint 420px
+  576: 36.03125rem, // breakpoint 576px
+  768: 48.03125rem, // breakpoint 768px
+  992: 62.03125rem, // breakpoint 992px
+	1024: 64.03125rem, // breakpoint 1024px
+  1200: 75.03125rem, // breakpoint 1200px
+	1280: 80.03125rem, // breakpoint 1280px
+	1360: 80.03125rem, // breakpoint 1360px
+	1440: 90.03125rem, // breakpoint 1440px
+	1600: 100.03125rem, // breakpoint 1440px
 );
 
 // Min Breakpoint
@@ -43,4 +43,37 @@ $breakpoints: (
 	} @else {
 		@warn "Invalid breakpoint: #{$breakpoint}.";
 	}
+}
+
+// Flex size
+@mixin flex-size($value) {
+	flex: 0 0 $value;
+	max-width: $value;
+}
+
+// Flex column size
+@mixin column-size($column) {
+  @if $column == 2 {
+    @include flex-size($column-2);
+  } @else if $column == 3 {
+    @include flex-size($column-3);
+  } @else if $column == 4 {
+    @include flex-size($column-4);
+  } @else if $column == 5 {
+    @include flex-size($column-5);
+  } @else if $column == 6 {
+    @include flex-size($column-6);
+  } @else if $column == 7 {
+    @include flex-size($column-7);
+  } @else if $column == 8 {
+    @include flex-size($column-8);
+  } @else if $column == 9 {
+    @include flex-size($column-9);
+  } @else if $column == 10 {
+    @include flex-size($column-10);
+  } @else if $column == 11 {
+    @include flex-size($column-11);
+  } @else {
+    @include flex-size($column-12);
+  }
 }

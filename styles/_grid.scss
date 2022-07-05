@@ -1,0 +1,102 @@
+// Row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -#{$gutter-m};
+  margin-right: -#{$gutter-m};
+  & > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-left: $gutter-m;
+    padding-right: $gutter-m;
+  }
+}
+
+// flex cols
+.col {
+  flex: 1 0 0%;
+  @for $i from 2 through 12 {
+    &.col-#{$i} { @include column-size($i); }
+  }
+  @include min-break(768) {
+    @for $i from 2 through 12 {
+      &.col-sm-#{$i} { @include column-size($i); }
+    }
+  }
+  @include min-break(1024) {
+    @for $i from 2 through 12 {
+      &.col-md-#{$i} { @include column-size($i); }
+    }
+  }
+  @include min-break(1200) {
+    @for $i from 2 through 12 {
+      &.col-l-#{$i} { @include column-size($i); }
+    }
+  }
+  @include min-break(1360) {
+    @for $i from 2 through 12 {
+      &.col-xl-#{$i} { @include column-size($i); }
+    }
+  }
+  @include min-break(1600) {
+    @for $i from 2 through 12 {
+      &.col-xxl-#{$i} { @include column-size($i); }
+    }
+  }
+  // Col strech
+  &.col-strech {
+    flex: 1;
+    max-width: none;
+  }
+  // Auto column
+  &.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+// Container
+.container {
+  max-width: $container-sm;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter-m;
+  padding-right: $gutter-m;
+  @include min-break(1024) {
+    max-width: $container-m;
+  }
+  @include min-break(1200) {
+    &.gutter-l, &.gutter-xl {
+      padding-left: $gutter-l;
+      padding-right: $gutter-l;
+      .row {
+        margin-left: -#{$gutter-l};
+        margin-right: -#{$gutter-l};
+      }
+    }
+  }
+  @include min-break(1360) {
+    &.large, &.xlarge, &.xxlarge {
+      max-width: $container-l;
+    }
+  }
+  @include min-break(1440) {
+    &.xlarge, &.xxlarge {
+      max-width: $container-xl;
+    }
+    &.gutter-xl {
+      padding-left: $gutter-xl;
+      padding-right: $gutter-xl;
+      .row {
+        margin-left: -#{$gutter-xl};
+        margin-right: -#{$gutter-xl};
+      }
+    }
+  }
+  @include min-break(1600) {
+    &.xxlarge {
+      max-width: $container-xxl;
+    }
+  }
+}
