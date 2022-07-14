@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { MantineProvider } from "@mantine/core";
+import { AppProvider } from "./context/app-context";
 import baseStyle from './styles/base.css';
 
 export const links = () => {
@@ -27,9 +28,11 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <MantineTheme>
-          <Outlet />
-        </MantineTheme>
+        <AppProvider>
+          <MantineTheme>
+            <Outlet />
+          </MantineTheme>
+        </AppProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
@@ -51,11 +54,11 @@ function MantineTheme({ children }) {
 
   return (
     <MantineProvider
-        theme={useTheme}
-        withNormalizeCSS
-        withGlobalStyles
-      >
-        {children}
+      theme={useTheme}
+      withNormalizeCSS
+      withGlobalStyles
+    >
+      {children}
     </MantineProvider>
   )
 }

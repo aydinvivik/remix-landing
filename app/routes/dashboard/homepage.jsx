@@ -14,7 +14,11 @@ export default function Homepage() {
             </div>
           </div>
         </div>
-        homepage
+        <div className="widget">
+          <div className="widget--body">
+            homepage
+          </div>
+        </div>
       </div>
     </div>
   );

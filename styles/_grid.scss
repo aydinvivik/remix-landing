@@ -31,7 +31,7 @@
   }
   @include min-break(1200) {
     @for $i from 2 through 12 {
-      &.col-l-#{$i} { @include column-size($i); }
+      &.col-lg-#{$i} { @include column-size($i); }
     }
   }
   @include min-break(1360) {

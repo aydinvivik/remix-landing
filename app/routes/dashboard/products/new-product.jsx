@@ -1,7 +1,7 @@
 import { ClientOnly } from "remix-utils";
 import React, { useState, Suspense } from "react";
 import { Form } from "@remix-run/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@remix-run/react";
 import { Button, TextInput, Skeleton, Switch, Textarea, Checkbox } from "@mantine/core";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import slugify from "slugify";
@@ -10,12 +10,12 @@ import ArrowLeft from "~/components/svg/ArrowLeft";
 let RichTextEditor = React.lazy(() => import("@mantine/rte"));
 
 export default function NewProduct() {
+  const [checked, setChecked] = useState(true);
   const [content, setContent] = useState('');
   const [productName, setProductName] = useState('');
   const navigate = useNavigate();
 
   const dropzoneChildren = ({status}) => {
-    console.log('status', status);
     return (
       <div className="form-dropzone">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,10 +171,11 @@ export default function NewProduct() {
                 <div className="form-item">
                   <Switch
                     name="published"
-                    label="Hide this product"
+                    label="Publish this product"
+                    checked={checked} onChange={(event) => setChecked(event.currentTarget.checked)}
                   />
                   <div className="form-description">
-                    <p>Do you want to hide this product? If you hide this product, it will not appear on the sales screen for customers.</p>
+                    <p>Please enable this option to make the product visible. If you do not activate it, the product will not be shown to customers.</p>
                   </div>
                 </div>
                 <div className="form-item">
@@ -202,7 +203,7 @@ export default function NewProduct() {
                           boxShadow: `0 0 2px 4px ${theme.colors.violet[0]}!important`,
                         }
                       }
-                      })}
+                    })}
                   />
                   <div className="form-description">
                     <p>You can specify an extra shipping cost for the product. If you want to set <strong className="color-orange">free shipping</strong>, leave this field blank</p>

@@ -171,6 +171,19 @@ h6, .h6 {
       margin-right: .5rem;
     }
   }
+  &.vertical {
+    .menu {
+      flex-direction: column;
+      width: 100%;
+      .menu-item {
+        a {
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 // Text content description
@@ -217,4 +230,56 @@ h6, .h6 {
 .site-copyright {
   font-size: .8125rem;
   color: $--color-gray-5;
+}
+
+// List block
+.list-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: $border-radius-medium;
+  overflow: hidden;
+  li {
+    display: flex;
+    align-items: center;
+    font-size: .875rem;
+    color: $--color-gray-6;
+    background-color: $--color-gray-0;
+    padding: .625rem 1.125rem;
+    .country-flag {
+      margin-right: .5rem;
+    }
+    & + li {
+      border-top: 1px solid $--color-white;
+    }
+  }
+}
+
+// Modal
+.mantine-Modal-root {
+  .mantine-Modal-modal {
+    border-radius: $border-radius-medium;
+    @include min-break(1024) {
+      padding: 1.5rem 1.875rem 1.875rem;
+    }
+    .mantine-Modal-header {
+      padding-bottom: .75rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid $--color-gray-2;
+      .mantine-Modal-title {
+        font-size: 1.1875rem;
+        font-weight: 500;
+      }
+    }
+    .site-form {
+      .form-item {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }

@@ -31,6 +31,13 @@
         }
       }
     }
+    .entry-title {
+      font-size: 1.375rem;
+      font-weight: 500;
+      @include min-break(1024) {
+        font-size: 1.625rem;
+      }
+    }
     .entry-slug {
       font-size: .75rem;
       margin-top: .3125rem;
@@ -129,9 +136,51 @@
     }
   }
   .form-description {
-    margin-top: .625rem;
+    margin-top: .5rem;
     & + .form-item--body {
       margin-top: .9375rem;
+    }
+  }
+}
+
+// Form heading
+.form-heading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .625rem;
+  @include min-break(1024) {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+  & > * {
+    & + * {
+      margin-top: .625rem;
+      margin-bottom: .625rem;
+      @include min-break(1024) {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: auto;
+        &.mantine-Button-root {
+          position: absolute;
+          right: 0;
+          top: -.8125rem;
+        }
+      }
+    }
+  }
+  .entry-title {
+    font-size: 1.1875rem;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  &.bordered {
+    padding-bottom: .625rem;
+    border-bottom: 1px solid $--color-gray-2;
+    @include min-break(1024) {
+      margin-bottom: 1.625rem;
     }
   }
 }
@@ -217,11 +266,12 @@
     margin-bottom: .25rem;
   }
   .mantine-TextInput-input {
-    font-size: .875rem;
+    font-size: .9375rem;
     font-weight: 500;
     letter-spacing: -0.01em;
     border-radius: $form-border-radius;
     &::placeholder {
+      font-size: .875rem;
       font-weight: 400;
     }
     &.mantine-TextInput-defaultVariant {
@@ -244,16 +294,247 @@
       }
     }
   }
+  &.label-large {
+    .mantine-TextInput-label {
+      font-size: .9375rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Currency input
+.currency-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $form-height;
+  font-size: .9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding-left: .875rem;
+  padding-right: .875rem;
+  color: $--color-black;
+  background-color: $--color-white;
+  border-radius: $form-border-radius;
+  border: 1px solid $--color-gray-4;
+  box-shadow: $--shadow-style-1;
+  transition: border-color 100ms ease;
+  appearance: none;
+  resize: none;
+  box-sizing: border-box;
+  &::placeholder {
+    font-size: .875rem;
+    font-weight: 400;
+    color: $--color-gray-5;
+  }
+  &:focus, &:active {
+    border-color: $--color-primary;
+    box-shadow: 0 0 2px 4px $--color-primary-0;
+  }
 }
 
 // Textarea
 .mantine-Textarea-root {
   .mantine-Textarea-input {
-    font-size: .875rem;
+    font-size: .9375rem;
+    font-weight: 500;
     letter-spacing: -0.01em;
     border-radius: $form-border-radius;
+    &::placeholder {
+      font-size: .875rem;
+      font-weight: 400;
+    }
     &.mantine-Textarea-defaultVariant {
       box-shadow: $--shadow-style-1;
+    }
+  }
+  &.vertical-textarea {
+    @include min-break(1024) {
+      display: flex;
+      align-items: flex-start;
+      .mantine-Textarea-label {
+        flex: 0 0 25%;
+        max-width: 18.75rem;
+        min-width: 10rem;
+        padding-right: 1.25rem;
+        margin-bottom: 0;
+      }
+      .mantine-Textarea-wrapper {
+        flex: 1;
+      }
+    }
+  }
+  &.label-large {
+    .mantine-Textarea-label {
+      font-size: .9375rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Select
+.mantine-Select-root {
+  .mantine-Select-input {
+    font-size: .9375rem;
+    font-weight: 500;
+    height: $form-height;
+    min-height: $form-height;
+    &::placeholder {
+      font-size: .875rem;
+      font-weight: 400;
+    }
+    &.mantine-Select-defaultVariant {
+      box-shadow: $--shadow-style-1;
+    }
+  }
+  .mantine-Select-label {
+    font-size: .8125rem;
+    font-weight: 400;
+    margin-bottom: .25rem;
+  }
+  &.vertical-select {
+    @include min-break(1024) {
+      display: flex;
+      align-items: center;
+      .mantine-Select-label {
+        flex: 0 0 25%;
+        max-width: 18.75rem;
+        min-width: 10rem;
+        padding-right: 1.25rem;
+        margin-bottom: 0;
+      }
+      div[role=combobox] {
+        flex: 1;
+      }
+    }
+  }
+  &.label-large {
+    .mantine-Select-label {
+      font-size: .9375rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Multiselect
+.rmsc {
+  .dropdown-container {
+    border-color: $--color-gray-4!important;
+    border-radius: $border-radius-medium!important;
+    box-shadow: $--shadow-style-1!important;
+    cursor: pointer!important;
+    &[aria-expanded=true] {
+      border-color: $--color-primary!important;
+      box-shadow: 0 0 2px 4px $--color-primary-0!important;
+    }
+  }
+  .dropdown-heading {
+    height: 2.5rem!important;
+    cursor: pointer!important;
+    .dropdown-heading-value {
+      span {
+        font-size: .9375rem;
+        font-weight: 500;
+      }
+    }
+  }
+  .dropdown-content {
+    padding-top: 4px!important;
+    .panel-content {
+      border-radius: $border-radius-medium!important;
+    }
+    .select-panel {
+      .search {
+        &::before {
+          content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>");
+          position: absolute;
+          width: 2rem;
+          top: 4px;
+          left: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        input {
+          display: flex;
+          align-items: center;
+          width: 100%!important;
+          height: 2.625rem!important;
+          font-size: .9375rem;
+          padding-left: 2.25rem!important;
+          &::placeholder {
+            font-size: .875rem;
+          }
+        }
+      }
+      .options {
+        label {
+          position: relative;
+          display: flex;
+          align-items: center;
+          .item-renderer {
+            align-items: center;
+          }
+          input {
+            display: none;
+          }
+          span {
+            font-size: .875rem;
+          }
+          img {
+            position: relative;
+            margin-right: .5rem;
+          }
+        }
+        li {
+          & > label {
+            .multiselect-item {
+              position: relative;
+              display: inline-flex;
+              align-items: center;
+              color: #fff;
+              &::before {
+                content: '';
+                position: relative;
+                width: 1.25rem;
+                height: 1.25rem;
+                border: 1px solid $--color-gray-4;
+                border-radius: $border-radius-small;
+                background-color: $--color-white;
+                box-shadow: $--shadow-style-2;
+                margin-right: .9375rem;
+                transition: all .1s $bezier;
+              }
+              svg {
+                position: absolute;
+                width: .625rem;
+                left: 5px;
+                margin-top: 2px;
+                opacity: 0;
+                transition: all .1s $bezier;
+              }
+            }
+            &.selected {
+              background-color: $--color-primary-0;
+              .multiselect-item {
+                &::before {
+                  background-color: $--color-primary;
+                  border-color: transparent;
+                }
+                svg {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+        & > label {
+          font-weight: 500;
+          padding-top: .875rem!important;
+          padding-bottom: .75rem!important;
+        }
+      }
     }
   }
 }
@@ -267,6 +548,7 @@
     border-top-right-radius: $form-border-radius;
   }
   .ql-editor {
+    font-size: .9375rem;
     min-height: 15.625rem;
   }
 }
@@ -322,6 +604,56 @@
         strong {
           font-weight: 600;
         }
+      }
+    }
+  }
+}
+
+// Form info
+.form-info {
+  margin-top: 1.25rem;
+  @include min-break(1024) {
+    margin-top: 3.5rem;
+  }
+  &--heading {
+    margin-bottom: .625rem;
+    .entry-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    .entry-description {
+      font-size: .875rem;
+    }
+  }
+}
+
+// Color changer
+.color-changer {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  min-height: $form-height;
+  gap: .375rem;
+  & > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: $--color-white;
+    border-radius: $border-radius-small;
+    border: 2px solid #fff;
+    cursor: pointer;
+    svg {
+      width: .875rem;
+      opacity: 0;
+      transition: all .1s $bezier;
+    }
+    &.active-color {
+      box-shadow: 0 0 0 2px $--color-gray-4;
+      svg {
+        opacity: 1;
       }
     }
   }
